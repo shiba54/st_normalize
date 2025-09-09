@@ -13,12 +13,12 @@ def main():
         layout='wide'
     )
     st.title('Normalize')
-    st.write('テキストのunicode正規化アプリ')
+    st.markdown('テキストのunicode正規化アプリ')
     st.caption(f"例：「{SAMPLE}」 -> 「{unicodedata.normalize(FORM, SAMPLE)}」")
 
-    col_from, col_to = st.columns(2, border=True)
+    col_from, col_to = st.columns(spec=2, border=True)
     with col_from:
-        st.write(':memo: テキストを入力してください')
+        st.markdown(':memo: テキストを入力してください')
         initial_height = 100
         text = st.text_area(
             label='_',
@@ -27,7 +27,7 @@ def main():
         )
 
     with col_to:
-        st.write(':sparkles: unicode正規化したテキスト')
+        st.markdown(':sparkles: unicode正規化したテキスト')
         content = ''
         if not text:
             st.code(content, language=None)
@@ -48,7 +48,9 @@ def main():
     st.markdown("""
     * ブラウザ更新でリセットできます
     * NFKC 形式で正規化しています
-    * unicode正規化の詳細については [Unicode正規化](https://ja.wikipedia.org/wiki/Unicode%E6%AD%A3%E8%A6%8F%E5%8C%96) 等でご確認ください
+    * unicode正規化の詳細については 
+        [Unicode正規化](https://ja.wikipedia.org/wiki/Unicode%E6%AD%A3%E8%A6%8F%E5%8C%96)
+        等でご確認ください
     """)
 
 
